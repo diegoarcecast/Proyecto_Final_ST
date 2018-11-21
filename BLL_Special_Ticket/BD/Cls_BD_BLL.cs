@@ -23,7 +23,8 @@ namespace BLL_Special_Ticket.BD
                 Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[0].ToString();
                 //creo obj conexion
                 Obj_BD_DAL.Obj_SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
-                //abrir conex
+                //abrir conex 
+                // prubas
                 if (Obj_BD_DAL.Obj_SQL_CNX.State == ConnectionState.Closed)
                 {
                     Obj_BD_DAL.Obj_SQL_CNX.Open();
