@@ -52,6 +52,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL_Special_Ticket\BLL_Special_Ticket.csproj">
+      <Project>{a54cea74-ad32-439e-b450-5010fecda4ce}</Project>
+      <Name>BLL_Special_Ticket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL_Special_Ticket\DAL_Special_Ticket.csproj">
+      <Project>{6797da3c-5181-4b50-aa79-b2b58409c312}</Project>
+      <Name>DAL_Special_Ticket</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
