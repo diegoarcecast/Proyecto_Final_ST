@@ -29,7 +29,7 @@ namespace BLL_Special_Ticket.BD
                 {
                     Obj_BD_DAL.Obj_SQL_CNX.Open();
                 }
-//hola esta es una prueba xD jajajajaja
+//hola esta es una prueba xD jajajajaja ajkshdfguaisdghfoaijsdh
 
                 return string.Empty;
             }
