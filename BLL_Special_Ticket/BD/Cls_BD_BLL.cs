@@ -26,7 +26,8 @@ namespace BLL_Special_Ticket.BD
                 //abrir conex 
                 // prubas
                 // hola
-                //hola soy ana
+                //hola soy ana 
+                // prueba 2
                 if (Obj_BD_DAL.Obj_SQL_CNX.State == ConnectionState.Closed)
                 {
                     Obj_BD_DAL.Obj_SQL_CNX.Open();
