@@ -14,7 +14,7 @@
         <link href="assets/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/animate/animate.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/plugins/animate/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN: BASE PLUGINS  -->
@@ -26,7 +26,7 @@
         <link href="assets/plugins/slider-for-bootstrap/css/slider.css" rel="stylesheet" type="text/css"/>
         <!-- END: BASE PLUGINS -->
         <!-- BEGIN THEME STYLES -->
-        <link href="assets/base/css/plugins.css" rel="stylesheet" type="text/css">
+        <link href="assets/base/css/plugins.css" rel="stylesheet" type="text/css"/>
         <link href="assets/base/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
         <link href="assets/base/css/themes/default.css" rel="stylesheet" id="style_theme" type="text/css"/>
         <link href="assets/base/css/custom.css" rel="stylesheet" type="text/css"/>
