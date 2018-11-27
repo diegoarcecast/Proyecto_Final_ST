@@ -95,10 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Mod_Usuario.css" />
+    <Content Include="CSS\Principal_CSS.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForms\wfrm_Principal.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -129,6 +131,16 @@
     <Compile Include="WebForms\Reg_Usuario.aspx.designer.cs">
       <DependentUpon>Reg_Usuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\wfrm_Principal.aspx.cs">
+      <DependentUpon>wfrm_Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Principal.aspx.designer.cs">
+      <DependentUpon>wfrm_Principal.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
