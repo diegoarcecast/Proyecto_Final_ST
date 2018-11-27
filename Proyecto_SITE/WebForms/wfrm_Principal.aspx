@@ -44,7 +44,7 @@ body {font-family: "Lato", sans-serif}
     </div>
       <div class="w3-right">
           <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Iniciar Sesión</a>
-          <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Registrarse</a>   
+          <a href="Reg_Usuario.aspx" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Registrarse</a>   
       </div>    
   </div>
 </div>
