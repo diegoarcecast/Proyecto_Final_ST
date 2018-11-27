@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto_SITE", "Proyecto_S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripst BD SQL", "Scripst BD SQL", "{DB7753C8-AE6D-40B5-932F-C0AEDA0735B3}"
 	ProjectSection(SolutionItems) = preProject
+		Bd_SpecialTicket.sql = Bd_SpecialTicket.sql
+		insert.sql = insert.sql
 		SqlQuery_1.sql = SqlQuery_1.sql
 	EndProjectSection
 EndProject
