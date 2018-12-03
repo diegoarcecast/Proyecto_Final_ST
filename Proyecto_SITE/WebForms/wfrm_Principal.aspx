@@ -83,7 +83,7 @@ body {font-family: "Lato", sans-serif}
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
-          <img src="../Resources/90p.png" alt="90 minutos por la vida" style="width:100%" class="w3-hover-opacity"/>
+          <asp:image runat="server" id="img1"  alt="90 minutos por la vida" style="width:100%" class="w3-hover-opacity"/>
           <div class="w3-container w3-white">
             <p><b>90 minutos por la vida</b></p>
             <p class="w3-opacity">06 Enero 2019</p>

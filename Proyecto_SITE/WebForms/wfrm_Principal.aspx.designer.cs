@@ -11,5 +11,14 @@ namespace Proyecto_SITE.WebForms {
     
     
     public partial class wfrm_Principal {
+        
+        /// <summary>
+        /// img1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image img1;
     }
 }
