@@ -10,6 +10,6 @@
 namespace Proyecto_SITE.WebForms {
     
     
-    public partial class wfrm_Principal {
+    public partial class wfrm_Comprar {
     }
 }
