@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Proyecto_SITE.WebForms
 {
-    public partial class wfrm_InicioSesion : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class wfrm_InicioSesion : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+	}
 }
