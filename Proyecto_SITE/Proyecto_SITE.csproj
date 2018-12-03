@@ -94,12 +94,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\Inicio_Sesion.css" />
     <Content Include="CSS\Mod_Usuario.css" />
     <Content Include="CSS\Principal_CSS.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForms\wfrm_InicioSesion.aspx" />
     <Content Include="WebForms\wfrm_Principal.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -130,6 +132,13 @@
     </Compile>
     <Compile Include="WebForms\Reg_Usuario.aspx.designer.cs">
       <DependentUpon>Reg_Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_InicioSesion.aspx.cs">
+      <DependentUpon>wfrm_InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_InicioSesion.aspx.designer.cs">
+      <DependentUpon>wfrm_InicioSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\wfrm_Principal.aspx.cs">
       <DependentUpon>wfrm_Principal.aspx</DependentUpon>
