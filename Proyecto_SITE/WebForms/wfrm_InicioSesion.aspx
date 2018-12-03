@@ -25,7 +25,8 @@
         <br /> <br />
         <asp:TextBox runat="server" ID="txt_Contraseña" MaxLength="32"/> 
         <br /> <br /> <br />
-        <asp:Button runat="server" ID="btn_Ingresar" Text="Ingresar" OnClick="btn_Ingresar_Click" />
+
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Iniciar Sesión</a>
     </div>
         <br />
         <div class="Informacion">
