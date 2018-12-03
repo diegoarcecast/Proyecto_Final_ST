@@ -12,6 +12,9 @@ namespace Proyecto_SITE.WebForms
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Image img1 = new Image();
+            img1.ImageUrl = " C:/Users/diego/Source/Repos/Proyecto_Final_ST/Proyecto_SITE/Resources/90p.png ";
+           
         }
     }
 }
