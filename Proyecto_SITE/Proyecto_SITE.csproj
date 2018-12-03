@@ -100,7 +100,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForms\wfrm_Comprar.aspx" />
     <Content Include="WebForms\wfrm_Principal.aspx" />
+    <Content Include="WebForms\wfrm_Retirar.aspx" />
+    <Content Include="WebForms\wfrm_Terminos_y_condiciones.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -131,12 +134,33 @@
     <Compile Include="WebForms\Reg_Usuario.aspx.designer.cs">
       <DependentUpon>Reg_Usuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\wfrm_Comprar.aspx.cs">
+      <DependentUpon>wfrm_Comprar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Comprar.aspx.designer.cs">
+      <DependentUpon>wfrm_Comprar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForms\wfrm_Principal.aspx.cs">
       <DependentUpon>wfrm_Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForms\wfrm_Principal.aspx.designer.cs">
       <DependentUpon>wfrm_Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Retirar.aspx.cs">
+      <DependentUpon>wfrm_Retirar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Retirar.aspx.designer.cs">
+      <DependentUpon>wfrm_Retirar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Terminos_y_condiciones.aspx.cs">
+      <DependentUpon>wfrm_Terminos_y_condiciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Terminos_y_condiciones.aspx.designer.cs">
+      <DependentUpon>wfrm_Terminos_y_condiciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
