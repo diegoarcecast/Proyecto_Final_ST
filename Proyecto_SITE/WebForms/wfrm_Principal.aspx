@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrm_Principal.aspx.cs" Inherits="Proyecto_SITE.WebForms.wfrm_Principal" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +15,10 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
+    <script>
 
+
+    </script>
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
@@ -25,11 +27,11 @@ body {font-family: "Lato", sans-serif}
     <a href="#ProximosEventos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Proximos Eventos</a>
     <a href="#Nosotros" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Nosotros</a>
        <div class="w3-dropdown-hover w3-hide-small">
-        <button class="w3-padding-large w3-button" title="More">Categorías<i class="fa fa-caret-down"></i></button>     
+        <button class="w3-padding-large w3-button" title="More">Categorías</button>     
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Conciertos</a>
-        <a href="#" class="w3-bar-item w3-button">Teatro</a>
-        <a href="#" class="w3-bar-item w3-button">Deportes</a>
+        <a href="wfrm_Cat_Conciertos.aspx" class="w3-bar-item w3-button">Conciertos</a>
+        <a href="wfrm_Cat_Teatro.aspx" class="w3-bar-item w3-button">Teatro</a>
+        <a href="wfrm_Cat_Deportes.aspx" class="w3-bar-item w3-button">Deportes</a>
         <a href="#" class="w3-bar-item w3-button">Culturales</a>
       </div>
        </div>
@@ -80,7 +82,7 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">Proximos Eventos</h2>
       <p class="w3-opacity w3-center"><i>Reserva tu entrada!</i></p><br>
-
+        <div id="DIV1" runat="server"></div>
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
           <asp:image runat="server" id="img1"  alt="90 minutos por la vida" style="width:100%" class="w3-hover-opacity"/>

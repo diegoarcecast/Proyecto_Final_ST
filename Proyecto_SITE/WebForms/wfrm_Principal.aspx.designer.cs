@@ -13,6 +13,15 @@ namespace Proyecto_SITE.WebForms {
     public partial class wfrm_Principal {
         
         /// <summary>
+        /// DIV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV1;
+        
+        /// <summary>
         /// img1 control.
         /// </summary>
         /// <remarks>
