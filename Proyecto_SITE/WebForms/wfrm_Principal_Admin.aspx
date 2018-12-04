@@ -20,7 +20,6 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Inicio</a>
     <a href="#ProximosEventos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Proximos Eventos</a>
     <a href="#Nosotros" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Nosotros</a>
@@ -36,18 +35,30 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">Ayuda<i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="wfrm_Terminos_y_condiciones.aspx" class="w3-bar-item w3-button">Términos y Condiciones</a>
-        <a href="wfrm_Comprar.aspx" class="w3-bar-item w3-button">¿Cómo comprar?</a>
-        <a href="wfrm_Retirar.aspx" class="w3-bar-item w3-button">¿Dónde retirar?</a>
+        <a href="wfrm_Terminos_y_condiciones" class="w3-bar-item w3-button">Términos y Condiciones</a>
+        <a href="wfrm_Comprar" class="w3-bar-item w3-button">¿Cómo comprar?</a>
+        <a href="wfrm_Retirar" class="w3-bar-item w3-button">¿Dónde retirar?</a>
         <a href="#Contacto" class="w3-bar-item w3-button">Contacto</a>
       </div>
     </div>
-      <div class="w3-right">
-          <a href="wfrm_InicioSesion.aspx" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Iniciar Sesión</a>
-          <a href="Reg_Usuario.aspx" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Registrarse</a>   
-      </div>    
+
+     <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">Administrar Eventos<i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Modificar</a>
+        <a href="#" class="w3-bar-item w3-button">Agregar</a>
+        <a href="#" class="w3-bar-item w3-button">Borrar</a>
+      </div>
+
+
   </div>
-</div>
+          <a href="wfrm_InicioSesion.aspx" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Iniciar Sesión</a><div class="w3-right">
+          &nbsp;   
+      </div>    
+          <a href="Reg_Usuario.aspx" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Registrarse</a>
+         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+
+  </div>
 
 <!-- Navbar  -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
@@ -83,7 +94,7 @@ body {font-family: "Lato", sans-serif}
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
-          <asp:image runat="server" id="img1"  alt="90 minutos por la vida" style="width:100%" class="w3-hover-opacity"/>
+          <img src="../Resources/90p.png" alt="90 minutos por la vida" style="width:100%" class="w3-hover-opacity"/>
           <div class="w3-container w3-white">
             <p><b>90 minutos por la vida</b></p>
             <p class="w3-opacity">06 Enero 2019</p>
@@ -238,3 +249,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+

@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Proyecto_SITE.WebForms
 {
-    public partial class wfrm_Principal : System.Web.UI.Page
+    public partial class wfrm_Principal_Admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Image img1 = new Image();
-            img1.ImageUrl = " C:/Users/diego/Source/Repos/Proyecto_Final_ST/Proyecto_SITE/Resources/90p.png ";
-           
         }
     }
 }
