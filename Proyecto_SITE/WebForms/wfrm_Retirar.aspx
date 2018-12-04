@@ -36,9 +36,9 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">Ayuda<i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="wfrm_Terminos_y_condiciones" class="w3-bar-item w3-button">Términos y Condiciones</a>
-        <a href="wfrm_Comprar" class="w3-bar-item w3-button">¿Cómo comprar?</a>
-        <a href="wfrm_Retirar" class="w3-bar-item w3-button">¿Dónde retirar?</a>
+        <a href="wfrm_Terminos_y_condiciones.aspx" class="w3-bar-item w3-button">Términos y Condiciones</a>
+        <a href="wfrm_Comprar.aspx" class="w3-bar-item w3-button">¿Cómo comprar?</a>
+        <a href="wfrm_Retirar.aspx" class="w3-bar-item w3-button">¿Dónde retirar?</a>
         <a href="#Contacto" class="w3-bar-item w3-button">Contacto</a>
       </div>
     </div>
