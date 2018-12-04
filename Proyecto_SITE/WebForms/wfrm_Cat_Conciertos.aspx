@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrm_Retirar.aspx.cs" Inherits="Proyecto_SITE.WebForms.wfrm_Retirar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrm_Cat_Conciertos.aspx.cs" Inherits="Proyecto_SITE.WebForms.wfrm_Cat_Conciertos" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Donde Retirar</title>
+    <title>SpecialTicket</title>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
@@ -12,33 +12,37 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
 <style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .mySlides {
+        display: none;
+    }
 </style>
 <body>
-
+       
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="wfrm_Principal" class="w3-bar-item w3-button w3-padding-large">Inicio</a>
+    <a href="wfrm_Principal.aspx" class="w3-bar-item w3-button w3-padding-large">Inicio</a>
     <a href="#ProximosEventos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Proximos Eventos</a>
     <a href="#Nosotros" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Nosotros</a>
        <div class="w3-dropdown-hover w3-hide-small">
         <button class="w3-padding-large w3-button" title="More">Categorías<i class="fa fa-caret-down"></i></button>     
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Conciertos</a>
-        <a href="#" class="w3-bar-item w3-button">Teatro</a>
-        <a href="#" class="w3-bar-item w3-button">Deportes</a>
-        <a href="#" class="w3-bar-item w3-button">Culturales</a>
+        <a href="wfrm_Cat_Conciertos.aspx" class="w3-bar-item w3-button">Conciertos</a>
+        <a href="wfrm_Cat_Teatro.aspx" class="w3-bar-item w3-button">Teatro</a>
+        <a href="wfrm_Cat_Deportes.aspx" class="w3-bar-item w3-button">Deportes</a>
       </div>
        </div>
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">Ayuda<i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="wfrm_Terminos_y_condiciones.aspx" class="w3-bar-item w3-button">Términos y Condiciones</a>
-        <a href="wfrm_Comprar.aspx" class="w3-bar-item w3-button">¿Cómo comprar?</a>
-        <a href="wfrm_Retirar.aspx" class="w3-bar-item w3-button">¿Dónde retirar?</a>
+        <a href="wfrm_Terminos_Condiciones.aspx" class="w3-bar-item w3-button">Términos y Condiciones</a>
+        <a href="#" class="w3-bar-item w3-button">¿Cómo comprar?</a>
+        <a href="#" class="w3-bar-item w3-button">¿Dónde retirar?</a>
         <a href="#Contacto" class="w3-bar-item w3-button">Contacto</a>
       </div>
     </div>
@@ -49,6 +53,8 @@ body {font-family: "Lato", sans-serif}
   </div>
 </div>
 
+        
+
 <!-- Navbar  -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="#ProximosEventos" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ProximosEventos</a>
@@ -58,18 +64,32 @@ body {font-family: "Lato", sans-serif}
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Iniciar Sesión</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Registrarse</a>   
 </div>
+    
+    <div class="w3-white">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+             <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+    <div  class="w3-third w3-margin-bottom">
+          <img  src="../Resources/img1.jpg" alt="Orquesta Filarmónica" style="width:150%" class="w3-hover-opacity"/>
+          <div class="w3-container w3-white">
+            <p><b>Orquesta Filarmónica</b></p>
+            <p class="fa fa-calendar">16-17 Dic 2018</p><br />
+            <p class="fa fa-clock-o">8:00pm</p><br />
+              <p class="fa fa-home">Teatro Melico Salazar</p>
+            <p class="fa fa-money">Precios:</p><br />
+              <p class="fa fa-ticket">General: $40</p><br />
+              <p class="fa fa-ticket">Palco: $75</p><br />
+            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Comprar entrada</button>
+                
+          </div>
+        </div>
+            </div>
+            </div>
+        </div>
 
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="Nosotros">
-    <h2 class="w3-wide">Puntos de servicio autorizados</h2>
-    <p class="w3-justify"></p>
-    <table>
-        <tr>
-            <td>Bansbach</td>
-        </tr>
-    </table>
-  </div>
 
-    <footer class="w3-footer w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+
+    <!-- Footer -->
+<footer class="w3-footer w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
         <h3>Síguenos</h3>
           <i class="fa fa-facebook-official w3-hover-opacity"></i>
           <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -79,4 +99,5 @@ body {font-family: "Lato", sans-serif}
           <i class="fa fa-linkedin w3-hover-opacity"></i>  
           <h4>© 2018 Special Ticket. Todos los derechos reservados.</h4>
 </footer>
+</body>
 </html>
