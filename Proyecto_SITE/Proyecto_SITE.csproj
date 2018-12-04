@@ -101,6 +101,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForms\wfrm_Cat_Conciertos.aspx" />
+    <Content Include="WebForms\wfrm_Cat_Deportes.aspx" />
+    <Content Include="WebForms\wfrm_Cat_Teatro.aspx" />
     <Content Include="WebForms\wfrm_Comprar.aspx" />
     <Content Include="WebForms\wfrm_InicioSesion.aspx" />
     <Content Include="WebForms\wfrm_Principal.aspx" />
@@ -136,6 +139,27 @@
     </Compile>
     <Compile Include="WebForms\Reg_Usuario.aspx.designer.cs">
       <DependentUpon>Reg_Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Conciertos.aspx.cs">
+      <DependentUpon>wfrm_Cat_Conciertos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Conciertos.aspx.designer.cs">
+      <DependentUpon>wfrm_Cat_Conciertos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Deportes.aspx.cs">
+      <DependentUpon>wfrm_Cat_Deportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Deportes.aspx.designer.cs">
+      <DependentUpon>wfrm_Cat_Deportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Teatro.aspx.cs">
+      <DependentUpon>wfrm_Cat_Teatro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\wfrm_Cat_Teatro.aspx.designer.cs">
+      <DependentUpon>wfrm_Cat_Teatro.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\wfrm_Comprar.aspx.cs">
       <DependentUpon>wfrm_Comprar.aspx</DependentUpon>
