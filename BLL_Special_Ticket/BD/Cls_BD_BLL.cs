@@ -16,30 +16,30 @@ namespace BLL_Special_Ticket.BD
     {
         Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-        public string Conectar_BD()
-        {
-            try
-            {
-                Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+        //public string Conectar_BD()
+        //{
+        //    try
+        //    {
+        //        Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-                //por indice o por nombre
-                Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[0].ToString();
-                //creo obj conexion
-                Obj_BD_DAL.Obj_SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
-                //abrir conex 
-                if (Obj_BD_DAL.Obj_SQL_CNX.State == ConnectionState.Closed)
-                {
-                    Obj_BD_DAL.Obj_SQL_CNX.Open();
-                }
+        //        //por indice o por nombre
+        //        Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[0].ToString();
+        //        //creo obj conexion
+        //        Obj_BD_DAL.Obj_SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
+        //        //abrir conex 
+        //        if (Obj_BD_DAL.Obj_SQL_CNX.State == ConnectionState.Closed)
+        //        {
+        //            Obj_BD_DAL.Obj_SQL_CNX.Open();
+        //        }
 
-                return string.Empty;
-            }
-            catch (Exception e)
-            {
-                return e.Message.ToString();
+        //        return string.Empty;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return e.Message.ToString();
 
-            }
-        }
+        //    }
+        //}
 
         public void Traer_Cnx(ref Cls_BD_DAL obj_BD_DAL)
         {
@@ -47,15 +47,15 @@ namespace BLL_Special_Ticket.BD
             {
                 obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings["WIN_AUT"].ToString();
 
-                obj_BD_DAL.SQL_CNX = new SqlConnection(obj_BD_DAL.sCadena);
+                obj_BD_DAL.SQL_CNX = new SqlConnection(obj_BD_DAL.SCadenaConec);
 
-                obj_BD_DAL.sMsjError = string.Empty;
-                obj_BD_DAL.bBandError = false;
+                obj_BD_DAL.SMsjError = string.Empty;
+                obj_BD_DAL.BBandError = false;
             }
             catch (Exception e)
             {
-                obj_BD_DAL.sMsjError = e.Message.ToString();
-                obj_BD_DAL.bBandError = true;
+                obj_BD_DAL.SMsjError = e.Message.ToString();
+                obj_BD_DAL.BBandError = true;
             }
         }
 
@@ -69,13 +69,13 @@ namespace BLL_Special_Ticket.BD
                     obj_BD_DAL.SQL_CNX.Open();
                 }
 
-                obj_BD_DAL.sMsjError = string.Empty;
-                obj_BD_DAL.bBandError = false;
+                obj_BD_DAL.SMsjError = string.Empty;
+                obj_BD_DAL.BBandError = false;
             }
             catch (SqlException e)
             {
-                obj_BD_DAL.sMsjError = e.Message.ToString();
-                obj_BD_DAL.bBandError = true;
+                obj_BD_DAL.SMsjError = e.Message.ToString();
+                obj_BD_DAL.BBandError = true;
             }
         }
 
@@ -86,12 +86,12 @@ namespace BLL_Special_Ticket.BD
             {
                 Traer_Cnx(ref obj_BD_DAL);
 
-                if ((obj_BD_DAL.sMsjError == string.Empty) && (obj_BD_DAL.bBandError == false))
+                if ((obj_BD_DAL.SMsjError == string.Empty) && (obj_BD_DAL.BBandError == false))
                 {
                     Abrir_Cnx(ref obj_BD_DAL);
 
 
-                    obj_BD_DAL.SQL_DA = new SqlDataAdapter(obj_BD_DAL.sSentencia, obj_BD_DAL.SQL_CNX);
+                    obj_BD_DAL.SQL_DA = new SqlDataAdapter(obj_BD_DAL.SSentencia, obj_BD_DAL.SQL_CNX);
 
                     #region Valido si hay o no parametros, para agregarlos
 
@@ -140,16 +140,16 @@ namespace BLL_Special_Ticket.BD
                     #endregion
 
                     obj_BD_DAL.DS = new System.Data.DataSet();
-                    obj_BD_DAL.SQL_DA.Fill(obj_BD_DAL.DS, obj_BD_DAL.sNomTabla);
+                    obj_BD_DAL.SQL_DA.Fill(obj_BD_DAL.DS, obj_BD_DAL.SNomTabla);
                 }
 
-                obj_BD_DAL.sMsjError = string.Empty;
-                obj_BD_DAL.bBandError = false;
+                obj_BD_DAL.SMsjError = string.Empty;
+                obj_BD_DAL.BBandError = false;
             }
             catch (SqlException e)
             {
-                obj_BD_DAL.sMsjError = e.Message.ToString();
-                obj_BD_DAL.bBandError = true;
+                obj_BD_DAL.SMsjError = e.Message.ToString();
+                obj_BD_DAL.BBandError = true;
             }
             finally
             {
@@ -172,11 +172,11 @@ namespace BLL_Special_Ticket.BD
             {
                 Traer_Cnx(ref obj_BD_DAL);
 
-                if ((obj_BD_DAL.sMsjError == string.Empty) && (obj_BD_DAL.bBandError == false))
+                if ((obj_BD_DAL.SMsjError == string.Empty) && (obj_BD_DAL.BBandError == false))
                 {
                     Abrir_Cnx(ref obj_BD_DAL);
 
-                    obj_BD_DAL.SQL_CMD = new SqlCommand(obj_BD_DAL.sSentencia, obj_BD_DAL.SQL_CNX);
+                    obj_BD_DAL.SQL_CMD = new SqlCommand(obj_BD_DAL.SSentencia, obj_BD_DAL.SQL_CNX);
 
                     #region Valido si hay o no parametros, para agregarlos
 
@@ -227,13 +227,13 @@ namespace BLL_Special_Ticket.BD
                     obj_BD_DAL.SQL_CMD.ExecuteNonQuery();
                 }
 
-                obj_BD_DAL.sMsjError = string.Empty;
-                obj_BD_DAL.bBandError = false;
+                obj_BD_DAL.SMsjError = string.Empty;
+                obj_BD_DAL.BBandError = false;
             }
             catch (SqlException e)
             {
-                obj_BD_DAL.sMsjError = e.Message.ToString();
-                obj_BD_DAL.bBandError = true;
+                obj_BD_DAL.SMsjError = e.Message.ToString();
+                obj_BD_DAL.BBandError = true;
             }
             finally
             {
@@ -256,11 +256,11 @@ namespace BLL_Special_Ticket.BD
             {
                 Traer_Cnx(ref obj_BD_DAL);
 
-                if ((obj_BD_DAL.sMsjError == string.Empty) && (obj_BD_DAL.bBandError == false))
+                if ((obj_BD_DAL.SMsjError == string.Empty) && (obj_BD_DAL.BBandError == false))
                 {
                     Abrir_Cnx(ref obj_BD_DAL);
 
-                    obj_BD_DAL.SQL_CMD = new SqlCommand(obj_BD_DAL.sSentencia, obj_BD_DAL.SQL_CNX);
+                    obj_BD_DAL.SQL_CMD = new SqlCommand(obj_BD_DAL.SSentencia, obj_BD_DAL.SQL_CNX);
 
                     #region Valido si hay o no parametros, para agregarlos
 
@@ -308,18 +308,18 @@ namespace BLL_Special_Ticket.BD
 
                     #endregion
 
-                    obj_BD_DAL.sValorScalar = obj_BD_DAL.SQL_CMD.ExecuteScalar().ToString();
+                    obj_BD_DAL.SValorScalar = obj_BD_DAL.SQL_CMD.ExecuteScalar().ToString();
                 }
 
-                obj_BD_DAL.sMsjError = string.Empty;
+                obj_BD_DAL.SMsjError = string.Empty;
 
-                obj_BD_DAL.bBandError = false;
+                obj_BD_DAL.BBandError = false;
             }
             catch (SqlException e)
             {
-                obj_BD_DAL.sValorScalar = "";
-                obj_BD_DAL.sMsjError = e.Message.ToString();
-                obj_BD_DAL.bBandError = true;
+                obj_BD_DAL.SValorScalar = "";
+                obj_BD_DAL.SMsjError = e.Message.ToString();
+                obj_BD_DAL.BBandError = true;
             }
             finally
             {

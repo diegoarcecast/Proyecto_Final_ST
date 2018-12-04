@@ -19,147 +19,147 @@ namespace BLL_Special_Ticket.CAT_MANT
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.sNomTabla = "Estados";
-            Obj_BD_DAL.sSentencia = "SP_LISTAR_ESTADOS";
+            Obj_BD_DAL.SNomTabla = "Estados";
+            Obj_BD_DAL.SSentencia = "SP_LISTAR_ESTADOS";
 
             Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL);
 
-            if (Obj_BD_DAL.sMsjError == string.Empty)
+            if (Obj_BD_DAL.SMsjError == string.Empty)
             {
-                Obj_Estados_DAL.sMsj_Error = string.Empty;
-                Obj_Estados_DAL.Ds = Obj_BD_DAL.DS;
+                Obj_Eventos_DAL.SMsj_Error = string.Empty;
+                Obj_Eventos_DAL.Ds = Obj_BD_DAL.DS;
             }
             else
             {
-                Obj_Estados_DAL.sMsj_Error = Obj_BD_DAL.sMsjError;
-                Obj_Estados_DAL.Ds = null;
+                Obj_Eventos_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
+                Obj_Eventos_DAL.Ds = null;
             }
         }
 
-        public void Filtrar_Eventos(ref Cls_Estados_DAL Obj_Estados_DAL, string sFiltro)
+        public void Filtrar_Eventos(ref Cls_Eventos_DAL Obj_Estados_DAL, string sFiltro)
         {
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.sNomTabla = "Estados";
-            Obj_BD_DAL.sSentencia = "SP_FILTRAR_ESTADOS";
+            Obj_BD_DAL.SNomTabla = "Estados";
+            Obj_BD_DAL.SSentencia = "SP_FILTRAR_ESTADOS";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Descripcion", "4", sFiltro); // 4 es varchar
 
             Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL);
 
-            if (Obj_BD_DAL.sMsjError == string.Empty)
+            if (Obj_BD_DAL.SMsjError == string.Empty)
             {
-                Obj_Estados_DAL.sMsj_Error = string.Empty;
+                Obj_Estados_DAL.SMsj_Error = string.Empty;
                 Obj_Estados_DAL.Ds = Obj_BD_DAL.DS;
             }
             else
             {
-                Obj_Estados_DAL.sMsj_Error = Obj_BD_DAL.sMsjError;
+                Obj_Estados_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
                 Obj_Estados_DAL.Ds = null;
             }
         }
 
-        public void Insertar_Eventos(ref Cls_Estados_DAL Obj_Estados_DAL)
+        public void Insertar_Eventos(ref Cls_Eventos_DAL Obj_Estados_DAL)
         {
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.sNomTabla = "";
-            Obj_BD_DAL.sSentencia = "SP_INSERTAR_ESTADOS";
+            Obj_BD_DAL.SNomTabla = "";
+            Obj_BD_DAL.SSentencia = "SP_INSERTAR_ESTADOS";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.sIdEstado);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Descripcion", "4", Obj_Estados_DAL.sDescripcion);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.SNomEvento);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Descripcion", "4", Obj_Estados_DAL.SDescripcionEv);
 
 
             Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);
 
-            if (Obj_BD_DAL.sMsjError == string.Empty)
+            if (Obj_BD_DAL.SMsjError == string.Empty)
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = string.Empty;
-                Obj_Estados_DAL.bEstAX = true;
-                Obj_Estados_DAL.sAX = "U";
+                Obj_Estados_DAL.SMsj_Error = string.Empty;
+                Obj_Estados_DAL.BEstAX = true;
+                Obj_Estados_DAL.SAX = "U";
             }
             else
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = Obj_BD_DAL.sMsjError;
-                Obj_Estados_DAL.bEstAX = false;
-                Obj_Estados_DAL.sAX = "I";
+                Obj_Estados_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
+                Obj_Estados_DAL.BEstAX = false;
+                Obj_Estados_DAL.SAX = "I";
             }
         }
 
-        public void Modificar_Eventos(ref Cls_Estados_DAL Obj_Estados_DAL)
+        public void Modificar_Eventos(ref Cls_Eventos_DAL Obj_Estados_DAL)
         {
 
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.sNomTabla = "";
-            Obj_BD_DAL.sSentencia = "SP_MODIFICAR_ESTADOS";
+            Obj_BD_DAL.SNomTabla = "";
+            Obj_BD_DAL.SSentencia = "SP_MODIFICAR_ESTADOS";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.sIdEstado);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Descripcion", "4", Obj_Estados_DAL.sDescripcion);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.SNomEvento);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Descripcion", "4", Obj_Estados_DAL.SDescripcionEv);
 
 
             Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);
 
-            if (Obj_BD_DAL.sMsjError == string.Empty)
+            if (Obj_BD_DAL.SMsjError == string.Empty)
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = string.Empty;
-                Obj_Estados_DAL.bEstAX = true;
-                Obj_Estados_DAL.sAX = "U";
+                Obj_Estados_DAL.SMsj_Error = string.Empty;
+                Obj_Estados_DAL.BEstAX = true;
+                Obj_Estados_DAL.SAX = "U";
             }
             else
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = Obj_BD_DAL.sMsjError;
-                Obj_Estados_DAL.bEstAX = false;
-                Obj_Estados_DAL.sAX = "U";
+                Obj_Estados_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
+                Obj_Estados_DAL.BEstAX = false;
+                Obj_Estados_DAL.SAX = "U";
             }
         }
 
-        public void Eliminar_Eventos(ref Cls_Estados_DAL Obj_Estados_DAL)
+        public void Eliminar_Eventos(ref Cls_Eventos_DAL Obj_Estados_DAL)
         {
 
 
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.sNomTabla = "";
-            Obj_BD_DAL.sSentencia = "SP_ELIMINAR_ESTADOS";
+            Obj_BD_DAL.SNomTabla = "";
+            Obj_BD_DAL.SSentencia = "SP_ELIMINAR_ESTADOS";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.sIdEstado);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@IdEstado", "3", Obj_Estados_DAL.SNomEvento);
 
 
 
             Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);
 
-            if (Obj_BD_DAL.sMsjError == string.Empty)
+            if (Obj_BD_DAL.SMsjError == string.Empty)
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = string.Empty;
-                Obj_Estados_DAL.bEstAX = true;
-                Obj_Estados_DAL.sAX = "D";
+                Obj_Estados_DAL.SMsj_Error = string.Empty;
+                Obj_Estados_DAL.BEstAX = true;
+                Obj_Estados_DAL.SAX = "D";
             }
             else
             {
 
 
-                Obj_Estados_DAL.sMsj_Error = Obj_BD_DAL.sMsjError;
-                Obj_Estados_DAL.bEstAX = false;
-                Obj_Estados_DAL.sAX = "D";
+                Obj_Estados_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
+                Obj_Estados_DAL.BEstAX = false;
+                Obj_Estados_DAL.SAX = "D";
             }
         }
     }
