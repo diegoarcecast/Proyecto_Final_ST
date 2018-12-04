@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using DAL_Special_Ticket.BD;
 using System.Configuration;
+
+using DAL_Special_Ticket.BD;
+
 
 namespace BLL_Special_Ticket.BD
 {
@@ -24,10 +26,6 @@ namespace BLL_Special_Ticket.BD
                 //creo obj conexion
                 Obj_BD_DAL.Obj_SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
                 //abrir conex 
-                // prubas
-                // hola
-                //hola soy ana 
-                // prueba 2
                 if (Obj_BD_DAL.Obj_SQL_CNX.State == ConnectionState.Closed)
                 {
                     Obj_BD_DAL.Obj_SQL_CNX.Open();
