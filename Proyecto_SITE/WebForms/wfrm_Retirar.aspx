@@ -21,7 +21,7 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Inicio</a>
+    <a href="wfrm_Principal" class="w3-bar-item w3-button w3-padding-large">Inicio</a>
     <a href="#ProximosEventos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Proximos Eventos</a>
     <a href="#Nosotros" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Nosotros</a>
        <div class="w3-dropdown-hover w3-hide-small">
@@ -58,6 +58,16 @@ body {font-family: "Lato", sans-serif}
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Iniciar Sesión</a>
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Registrarse</a>   
 </div>
+
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="Nosotros">
+    <h2 class="w3-wide">Puntos de servicio autorizados</h2>
+    <p class="w3-justify"></p>
+    <table>
+        <tr>
+            <td>Bansbach</td>
+        </tr>
+    </table>
+  </div>
 
     <footer class="w3-footer w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
         <h3>Síguenos</h3>
