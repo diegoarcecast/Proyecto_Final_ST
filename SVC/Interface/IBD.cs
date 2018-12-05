@@ -15,6 +15,9 @@ namespace SVC.Interface
        [OperationContract]
        bool ConectarBD();
 
-        
+    
+       [OperationContract]
+       int SUMAR(int Valor_1, int Valor_2);
+
     }
 }

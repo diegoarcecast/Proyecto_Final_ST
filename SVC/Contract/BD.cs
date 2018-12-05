@@ -12,6 +12,11 @@ namespace SVC.Contract
 {
     public class BD : Interface.IBD
     {
+        public int SUMAR(int Valor_1, int Valor_2)
+        {
+            return Valor_1 + Valor_2;
+        }
+
         public bool ConectarBD()
         {
             Cls_BD_BLL obj_BD_BLL = new Cls_BD_BLL();
@@ -27,5 +32,7 @@ namespace SVC.Contract
 
             }
         }
+
+        
     }
 }
