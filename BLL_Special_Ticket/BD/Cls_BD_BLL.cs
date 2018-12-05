@@ -40,9 +40,6 @@ namespace BLL_Special_Ticket.BD
 
             }
         }
-
-        
-
         public void Traer_Cnx(ref Cls_BD_DAL obj_BD_DAL)
         {
             try
@@ -60,8 +57,6 @@ namespace BLL_Special_Ticket.BD
                 obj_BD_DAL.BBandError = true;
             }
         }
-
-
         public void Abrir_Cnx(ref Cls_BD_DAL obj_BD_DAL)
         {
             try
@@ -80,8 +75,6 @@ namespace BLL_Special_Ticket.BD
                 obj_BD_DAL.BBandError = true;
             }
         }
-
-
         public void Exec_DataAdapter(ref Cls_BD_DAL obj_BD_DAL)
         {
             try
@@ -108,14 +101,14 @@ namespace BLL_Special_Ticket.BD
                             {
                                 case "1":
                                     {
-                                        //agreagamos parametros que va a consumir mi store procedure 
+                                       /// agreagamos parametros que va a consumir mi store procedure
                                         obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
                                                                                        SqlDbType.Int).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "2":
                                     {
-                                        //agreagamos parametros que va a consumir mi store procedure 
+                                       // agreagamos parametros que va a consumir mi store procedure
                                         obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
                                                                                        SqlDbType.NVarChar).Value = dr[2].ToString();
                                         break;
@@ -166,8 +159,6 @@ namespace BLL_Special_Ticket.BD
                 }
             }
         }
-
-
         public void Exec_NonQuery(ref Cls_BD_DAL obj_BD_DAL)
         {
             try
@@ -250,8 +241,6 @@ namespace BLL_Special_Ticket.BD
                 }
             }
         }
-
-
         public void Exec_Scalar(ref Cls_BD_DAL obj_BD_DAL)
         {
             try
@@ -336,12 +325,78 @@ namespace BLL_Special_Ticket.BD
                 }
             }
         }
-
         public void Crear_DT_Parametros(ref Cls_BD_DAL Obj_Conexion)
         {
             Obj_Conexion.Dt_Parametros.Columns.Add("NombreParam");
             Obj_Conexion.Dt_Parametros.Columns.Add("TipoDatoParam");
             Obj_Conexion.Dt_Parametros.Columns.Add("ValorParam");
         }
+        public DataTable ExecuteDataAdapter(string s_Nombre_SP, string sNombreParametro, SqlDbType DBType, string svalorparametro)//NOMBRE DEL STORE PROCEDURE
+        {
+            try
+            {
+                Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+                Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[1].ToString();
+                Obj_BD_DAL.SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
+                if (Obj_BD_DAL.SQL_CNX.State == ConnectionState.Closed)
+                {
+                    Obj_BD_DAL.SQL_CNX.Open();
+                }
+
+                Obj_BD_DAL.SQL_DA = new SqlDataAdapter(s_Nombre_SP,Obj_BD_DAL.SQL_CNX);
+
+
+                DataSet DS = new DataSet();
+
+                Obj_BD_DAL.SQL_DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                if (svalorparametro != string.Empty)
+                {
+                    Obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(sNombreParametro, DBType).Value = svalorparametro;
+                }
+                Obj_BD_DAL.SQL_DA.Fill(DS);
+                return DS.Tables[0];
+            }
+            catch (SqlException ex)
+            {
+                return null;
+            }
+
+
+        //    public Form1()
+        //{
+        //    InitializeComponent();
+        //}
+
+        //private void Form1_Load(object sender, EventArgs e)
+        //{
+        //    DataTable DT = new DataTable();
+        //    ServiceReference1.BDClient Obj_WCF = new BDClient();
+        //    DT = Obj_WCF.ListarDatos("sp_listar");
+
+        //    dataGridView1.DataSource = DT;
+        //    dataGridView1.Enabled = false;
+        //}
+
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
+        //    DataTable DT = new DataTable();
+        //    ServiceReference1.BDClient Obj_WCF = new BDClient();
+        //    if (textBox1.Text.Trim() == string.Empty)
+        //    {
+
+        //        DT = Obj_WCF.ListarDatos("sp_listar");
+
+        //        dataGridView1.DataSource = DT;
+        //    }
+        //    else
+        //    {
+        //        DT = Obj_WCF.FILTRARDatos("sp_FILTRAR", "@CompanyName", SqlDbType.NVarChar, textBox1.Text.Trim());
+
+        //        dataGridView1.DataSource = DT;
+        //    }
+        //}
     }
+    }
+
+  
 }

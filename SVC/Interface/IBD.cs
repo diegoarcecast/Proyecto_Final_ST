@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data;
 
 namespace SVC.Interface
 {
@@ -11,8 +12,13 @@ namespace SVC.Interface
 
     public interface IBD
     {
-     
-       [OperationContract]
+        [OperationContract]
+        DataTable ListarDatos(string sNombreSP);
+
+        [OperationContract]
+        DataTable FILTRARDatos(string sNombreSP, string sNombreParametro, SqlDbType DBType, string svalorparametro);
+
+        [OperationContract]
        bool ConectarBD();
 
     
