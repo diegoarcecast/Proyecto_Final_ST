@@ -107,7 +107,6 @@
     <Content Include="WebForms\wfrm_Comprar.aspx" />
     <Content Include="WebForms\wfrm_InicioSesion.aspx" />
     <Content Include="WebForms\wfrm_Principal.aspx" />
-    <Content Include="WebForms\wfrm_Principal_Admin.aspx" />
     <Content Include="WebForms\wfrm_Retirar.aspx" />
     <Content Include="WebForms\wfrm_Terminos_y_condiciones.aspx" />
     <None Include="Web.Debug.config">
@@ -181,13 +180,6 @@
     </Compile>
     <Compile Include="WebForms\wfrm_Principal.aspx.designer.cs">
       <DependentUpon>wfrm_Principal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForms\wfrm_Principal_Admin.aspx.cs">
-      <DependentUpon>wfrm_Principal_Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForms\wfrm_Principal_Admin.aspx.designer.cs">
-      <DependentUpon>wfrm_Principal_Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\wfrm_Retirar.aspx.cs">
       <DependentUpon>wfrm_Retirar.aspx</DependentUpon>
