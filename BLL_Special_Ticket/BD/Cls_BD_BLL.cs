@@ -16,23 +16,31 @@ namespace BLL_Special_Ticket.BD
     {
         Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
+        SqlConnection CNX;// cambio
+
         public string Conectar_BD()
         {
             try
             {
-                Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
-
-                //por indice o por nombre
-                Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[0].ToString();
-                //creo obj conexion
-                Obj_BD_DAL.SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
-                //abrir conex 
-                if (Obj_BD_DAL.SQL_CNX.State == ConnectionState.Closed)
-                {
-                    Obj_BD_DAL.SQL_CNX.Open();
-                }
-
+                #region Variables
+                ConnectionStringSettings Cadena;
+                #endregion
+                Cadena = ConfigurationManager.ConnectionStrings["WINDOWS_AUT"];
+                CNX = new SqlConnection(Cadena.ToString());
                 return string.Empty;
+                //Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+
+                ////por indice o por nombre
+                //Obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings[0].ToString();
+                ////creo obj conexion
+                //Obj_BD_DAL.SQL_CNX = new SqlConnection(Obj_BD_DAL.SCadenaConec);
+                ////abrir conex 
+                //if (Obj_BD_DAL.SQL_CNX.State == ConnectionState.Closed)
+                //{
+                //    Obj_BD_DAL.SQL_CNX.Open();
+                //}
+
+                //return string.Empty;
             }
             catch (Exception e)
             {
@@ -356,7 +364,7 @@ namespace BLL_Special_Ticket.BD
                 Obj_BD_DAL.SQL_DA.Fill(DS);
                 return DS.Tables[0];
             }
-            catch (SqlException ex)
+            catch (SqlException )
             {
                 return null;
             }
