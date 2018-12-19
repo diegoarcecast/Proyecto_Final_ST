@@ -7,20 +7,25 @@ using System.Threading.Tasks;
 
 namespace DAL_Special_Ticket.CAT_MANT
 {
-    public class Cls_Eventos_DAL
+    public class Cls_Usuario_DAL
     {
         #region VARIABLES PRIVADAS
 
 
-        private string _sDescripcionEv,
+        private string _sCorreo,
+                       _sNotas,
+                       _sClave,
+                       _sNombre,
                        _sAX,
-                       _sNomEvento,
                        _sCadena,
                        _sMsj_Error,
                        _sSetencia,
                        _sNombreTabla;
 
-        private Boolean _bEstAX;
+        private int _iTelefono;
+
+        private Boolean _bEstAX,
+                        _bNotificaciones;
 
 
 
@@ -28,16 +33,55 @@ namespace DAL_Special_Ticket.CAT_MANT
         #endregion
 
         #region VARIABLES PUBLICAS
-        public string SDescripcionEv
+        public string SCorreo
         {
             get
             {
-                return _sDescripcionEv;
+                return _sCorreo;
             }
 
             set
             {
-                _sDescripcionEv = value;
+                _sCorreo = value;
+            }
+        }
+
+        public string SNotas
+        {
+            get
+            {
+                return _sNotas;
+            }
+
+            set
+            {
+                _sNotas = value;
+            }
+        }
+
+        public string SClave
+        {
+            get
+            {
+                return _sClave;
+            }
+
+            set
+            {
+                _sClave = value;
+            }
+        }
+
+        public string SNombre
+        {
+            get
+            {
+                return _sNombre;
+            }
+
+            set
+            {
+                _sNombre = value;
             }
         }
 
@@ -51,19 +95,6 @@ namespace DAL_Special_Ticket.CAT_MANT
             set
             {
                 _sAX = value;
-            }
-        }
-
-        public string SNomEvento
-        {
-            get
-            {
-                return _sNomEvento;
-            }
-
-            set
-            {
-                _sNomEvento = value;
             }
         }
 
@@ -119,6 +150,19 @@ namespace DAL_Special_Ticket.CAT_MANT
             }
         }
 
+        public int ITelefono
+        {
+            get
+            {
+                return _iTelefono;
+            }
+
+            set
+            {
+                _iTelefono = value;
+            }
+        }
+
         public bool BEstAX
         {
             get
@@ -131,6 +175,20 @@ namespace DAL_Special_Ticket.CAT_MANT
                 _bEstAX = value;
             }
         }
+
+        public bool BNotificaciones
+        {
+            get
+            {
+                return _bNotificaciones;
+            }
+
+            set
+            {
+                _bNotificaciones = value;
+            }
+        }
+
         #endregion
         public SqlConnection Obj_Sql_cnx;
 
@@ -141,6 +199,7 @@ namespace DAL_Special_Ticket.CAT_MANT
         public System.Data.DataSet Ds = new System.Data.DataSet();
 
         public System.Data.DataTable dt_PARAMETROS = new System.Data.DataTable("PARAMETROS");
+
 
     }
 }

@@ -13,5 +13,10 @@ namespace Proyecto_SITE.WebForms
         {
 
         }
+
+        protected void button_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

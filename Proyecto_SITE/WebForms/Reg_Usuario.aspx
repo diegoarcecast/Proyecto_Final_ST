@@ -159,7 +159,8 @@
 	</td>
 </tr>
 <tr>
-     <td><input type="button" value="Insertar" style="margin-top:13px;" class="button" onclick="Validar(this.form)"/>&nbsp;</td>
+     <asp:Button runat="server" />   
+     <td><asp:Button runat="server" value="Insertar" Text="Insertar" style="margin-top:13px;" class="button" onclick="button_click" Width="59px"/>&nbsp;</td>
      <td><input type="button" value="Cancelar" class="button" onclick="cancelar()"/>&nbsp;</td>
 </tr>
 </tbody></table>

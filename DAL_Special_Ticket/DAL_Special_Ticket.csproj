@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\Cls_BD_DAL.cs" />
-    <Compile Include="CAT_MANT\Cls_Eventos_DAL.cs" />
+    <Compile Include="CAT_MANT\Cls_Usuario_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
