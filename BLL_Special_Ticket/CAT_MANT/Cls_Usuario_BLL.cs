@@ -9,7 +9,7 @@ using DAL_Special_Ticket.CAT_MANT;
 
 namespace BLL_Special_Ticket.CAT_MANT
 {
-    class Cls_Usuario_BLL
+   public class Cls_Usuario_BLL //Hecho Por Juan Diego
     {
         public void Insertar_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)
         {
@@ -155,7 +155,7 @@ namespace BLL_Special_Ticket.CAT_MANT
             }
         }
 
-        public void Reiniciar_Clave_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)
+        public void Recuperar_Clave_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)
         {
 
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
@@ -166,7 +166,7 @@ namespace BLL_Special_Ticket.CAT_MANT
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
             
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Clave", "4", Obj_Usuario_DAL.SClave);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4", Obj_Usuario_DAL.SCorreo);
            
 
 

@@ -5,7 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Data;
-
+using BLL_Special_Ticket.CAT_MANT;
+using DAL_Special_Ticket.CAT_MANT;
 using BLL_Special_Ticket.BD;
 using DAL_Special_Ticket.BD;
 
@@ -13,6 +14,70 @@ namespace SVC.Contract
 {
     public class BD : Interface.IBD
     {
+        public string Insertar_Usuarios(string Correo,string Clave,string Nombre, string Notas, int Telefono,bool Notificaciones)
+        {
+            Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
+            Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
+
+            Obj_Usuario_DAL.SCorreo = Correo;
+            Obj_Usuario_DAL.SClave = Clave;
+            Obj_Usuario_DAL.SNombre = Nombre;
+            Obj_Usuario_DAL.SNotas = Notas;
+            Obj_Usuario_DAL.ITelefono = Telefono;
+            Obj_Usuario_DAL.BNotificaciones = Notificaciones;
+
+            Obj_Usuario_BLL.Insertar_Usuarios(ref Obj_Usuario_DAL);
+
+            if (Obj_Usuario_DAL.SMsj_Error==string.Empty)
+            {
+                return "Usuario Agregado";
+            }
+            else
+            {
+                return "Error de conexion";
+            }
+
+        }
+        public string InicioSesion(string Correo, string Clave)
+        {
+            Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
+
+            Obj_Usuario_BLL.Autenticar_Usuario2(Correo,Clave);
+
+            if (Obj_Usuario_BLL.Autenticar_Usuario2(Correo,Clave).Equals(false))
+            {
+                return "Inicio exitoso";
+            }
+            else
+            {
+                return "Error de Inicio";
+            }
+
+        }
+
+        public string Modificar_Usuario(string Correo, string Clave, string Nombre, string Notas, int Telefono, bool Notificaciones)
+        {
+            Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
+            Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
+            Obj_Usuario_DAL.SCorreo = Correo;
+            Obj_Usuario_DAL.SClave = Clave;
+            Obj_Usuario_DAL.SNombre = Nombre;
+            Obj_Usuario_DAL.SNotas = Notas;
+            Obj_Usuario_DAL.ITelefono = Telefono;
+            Obj_Usuario_DAL.BNotificaciones = Notificaciones;
+            Obj_Usuario_BLL.Modificar_Usuarios(ref Obj_Usuario_DAL);
+
+            if (Obj_Usuario_DAL.SMsj_Error == string.Empty)
+            {
+                return "Usuario Modificado";
+            }
+            else
+            {
+                return "Error de conexion";
+            }
+        }
+
+        //Hecho Por Juan Diego
 
         public DataTable ListarDatos(string sNombreSP)
         {

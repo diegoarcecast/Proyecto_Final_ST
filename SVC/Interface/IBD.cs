@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Data;
 
+
 namespace SVC.Interface
 {
     [ServiceContract]
@@ -14,6 +15,12 @@ namespace SVC.Interface
     {
         [OperationContract]
         DataTable ListarDatos(string sNombreSP);
+        [OperationContract]
+        string Insertar_Usuarios(string Correo, string Clave, string Nombre, string Notas, int Telefono, bool Notificaciones);
+        [OperationContract]
+        string InicioSesion(string Correo, string Clave);
+        [OperationContract]
+        string Modificar_Usuario(string Correo, string Clave, string Nombre, string Notas, int Telefono, bool Notificaciones);
 
         [OperationContract]
         DataTable FILTRARDatos(string sNombreSP, string sNombreParametro, SqlDbType DBType, string svalorparametro);
