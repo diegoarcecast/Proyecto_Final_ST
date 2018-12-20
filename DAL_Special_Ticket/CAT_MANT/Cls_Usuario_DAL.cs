@@ -23,6 +23,8 @@ namespace DAL_Special_Ticket.CAT_MANT
                        _sNombreTabla,
             _sTelefono;
 
+        byte idUsuario;
+
         
 
         private Boolean _bEstAX,
@@ -189,6 +191,19 @@ namespace DAL_Special_Ticket.CAT_MANT
             set
             {
                 _sTelefono = value;
+            }
+        }
+
+        public byte IdUsuario
+        {
+            get
+            {
+                return idUsuario;
+            }
+
+            set
+            {
+                idUsuario = value;
             }
         }
 

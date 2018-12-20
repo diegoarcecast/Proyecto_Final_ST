@@ -275,31 +275,31 @@ namespace BLL_Special_Ticket.BD
 
                         foreach (DataRow dr in obj_BD_DAL.Dt_Parametros.Rows)
                         {
-                            switch (dr["TIPO_DATO"].ToString())
+                            switch (dr[1].ToString())
                             {
                                 case "1":
                                     {
-                                        //agreagamos parametros que va a consumir mi store procedure 
-                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr["NOMBRE_CAMPO"].ToString(),
-                                                                                       SqlDbType.Int).Value = dr["VALOR"].ToString();
+                                        //agregamos parametros que va a consumir mi store procedure 
+                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr[0].ToString(),
+                                                                                       SqlDbType.SmallInt).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "2":
                                     {
                                         //agreagamos parametros que va a consumir mi store procedure 
-                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr["NOMBRE_CAMPO"].ToString(),
-                                                                                       SqlDbType.NVarChar).Value = dr["VALOR"].ToString();
+                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr[0].ToString(),
+                                                                                       SqlDbType.DateTime).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "3":
                                     {
-                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr["NOMBRE_CAMPO"].ToString(),
-                                                                                       SqlDbType.Char).Value = dr["VALOR"].ToString();
+                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr[0].ToString(),
+                                                                                       SqlDbType.Bit).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "4":
                                     {
-                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr["NOMBRE_CAMPO"].ToString(), SqlDbType.VarChar).Value = dr["VALOR"].ToString();
+                                        obj_BD_DAL.SQL_CMD.Parameters.Add(dr[0].ToString(), SqlDbType.VarChar).Value = dr[2].ToString();
                                         break;
                                     }
                                 default:
