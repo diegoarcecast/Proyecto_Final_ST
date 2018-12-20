@@ -20,9 +20,10 @@ namespace DAL_Special_Ticket.CAT_MANT
                        _sCadena,
                        _sMsj_Error,
                        _sSetencia,
-                       _sNombreTabla;
+                       _sNombreTabla,
+            _sTelefono;
 
-        private int _iTelefono;
+        
 
         private Boolean _bEstAX,
                         _bNotificaciones;
@@ -150,18 +151,7 @@ namespace DAL_Special_Ticket.CAT_MANT
             }
         }
 
-        public int ITelefono
-        {
-            get
-            {
-                return _iTelefono;
-            }
-
-            set
-            {
-                _iTelefono = value;
-            }
-        }
+        
 
         public bool BEstAX
         {
@@ -186,6 +176,19 @@ namespace DAL_Special_Ticket.CAT_MANT
             set
             {
                 _bNotificaciones = value;
+            }
+        }
+
+        public string STelefono
+        {
+            get
+            {
+                return _sTelefono;
+            }
+
+            set
+            {
+                _sTelefono = value;
             }
         }
 
