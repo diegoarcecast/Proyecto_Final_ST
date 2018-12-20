@@ -23,7 +23,7 @@ namespace BLL_Special_Ticket.CAT_MANT
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4",Obj_Usuario_DAL.SCorreo);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Clave", "4", Obj_Usuario_DAL.SClave);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Nombre", "4", Obj_Usuario_DAL.SNombre);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "4", Obj_Usuario_DAL.ITelefono);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "4", Obj_Usuario_DAL.STelefono);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notificaciones", "3", Obj_Usuario_DAL.BNotificaciones);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notas", "4", Obj_Usuario_DAL.SNotas);
 
@@ -66,7 +66,7 @@ namespace BLL_Special_Ticket.CAT_MANT
             {
                 Obj_Usuario_DAL.SMsj_Error = string.Empty;
                 Obj_Usuario_DAL.Ds = Obj_BD_DAL.DS;
-                if (Obj_Usuario_DAL.Ds.Tables.Contains(Correo))
+                if (Obj_Usuario_DAL.Ds.Tables.Contains(Correo)&&Obj_Usuario_DAL.Ds.Tables.Contains(clave))
                 {
                     return true;
                 }
@@ -127,12 +127,12 @@ namespace BLL_Special_Ticket.CAT_MANT
             Obj_BD_DAL.SSentencia = "SP_MODIFICAR_USUARIO";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "3", Obj_Usuario_DAL.SCorreo);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4", Obj_Usuario_DAL.SCorreo);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Clave", "4", Obj_Usuario_DAL.SClave);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Nombre", "3", Obj_Usuario_DAL.SNombre);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "3", Obj_Usuario_DAL.ITelefono);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Nombre", "4", Obj_Usuario_DAL.SNombre);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "4", Obj_Usuario_DAL.STelefono);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notificaciones", "3", Obj_Usuario_DAL.BNotificaciones);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notas", "3", Obj_Usuario_DAL.SNotas);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notas", "4", Obj_Usuario_DAL.SNotas);
 
 
             Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);
@@ -155,38 +155,27 @@ namespace BLL_Special_Ticket.CAT_MANT
             }
         }
 
-        public void Recuperar_Clave_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)
+        public bool Recuperar_Clave_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)             
         {
-
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-            Obj_BD_DAL.SNomTabla = "";
-            Obj_BD_DAL.SSentencia = "SP_REINICIAR_CLAVE";
+            Obj_BD_DAL.SNomTabla = "Usuarios";
+            Obj_BD_DAL.SSentencia = "SP_LISTAR_CORREOS";
 
-            Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4", Obj_Usuario_DAL.SCorreo);
-           
-
-
-            Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);
+            Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL);
 
             if (Obj_BD_DAL.SMsjError == string.Empty)
             {
-
-
                 Obj_Usuario_DAL.SMsj_Error = string.Empty;
-                Obj_Usuario_DAL.BEstAX = true;
-                Obj_Usuario_DAL.SAX = "U";
+                Obj_Usuario_DAL.Ds = Obj_BD_DAL.DS;
+                return true;
             }
             else
             {
-
-
                 Obj_Usuario_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
-                Obj_Usuario_DAL.BEstAX = false;
-                Obj_Usuario_DAL.SAX = "U";
+                Obj_Usuario_DAL.Ds = null;
+                return false;
             }
         }
     }

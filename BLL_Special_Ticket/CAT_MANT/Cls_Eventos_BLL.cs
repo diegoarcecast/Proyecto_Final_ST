@@ -14,27 +14,27 @@ namespace BLL_Special_Ticket.CAT_MANT
     class Cls_Eventos_BLL
     {
 
-        //        public void Listar_Eventos(ref Cls_Eventos_DAL Obj_Eventos_DAL)
-        //        {
-        //            Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
-        //            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+        //public void Listar_Eventos(ref Cls_Eventos_DAL Obj_Eventos_DAL)
+        //{
+        //    Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
+        //    Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
-        //            Obj_BD_DAL.SNomTabla = "Estados";
-        //            Obj_BD_DAL.SSentencia = "SP_LISTAR_ESTADOS";
+        //    Obj_BD_DAL.SNomTabla = "Estados";
+        //    Obj_BD_DAL.SSentencia = "SP_LISTAR_ESTADOS";
 
-        //            Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL);
+        //    Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL);
 
-        //            if (Obj_BD_DAL.SMsjError == string.Empty)
-        //            {
-        //                Obj_Eventos_DAL.SMsj_Error = string.Empty;
-        //                Obj_Eventos_DAL.Ds = Obj_BD_DAL.DS;
-        //            }
-        //            else
-        //            {
-        //                Obj_Eventos_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
-        //                Obj_Eventos_DAL.Ds = null;
-        //            }
-        //        }
+        //    if (Obj_BD_DAL.SMsjError == string.Empty)
+        //    {
+        //        Obj_Eventos_DAL.SMsj_Error = string.Empty;
+        //        Obj_Eventos_DAL.Ds = Obj_BD_DAL.DS;
+        //    }
+        //    else
+        //    {
+        //        Obj_Eventos_DAL.SMsj_Error = Obj_BD_DAL.SMsjError;
+        //        Obj_Eventos_DAL.Ds = null;
+        //    }
+        //}
 
         //public void Filtrar_Eventos(ref Cls_Eventos_DAL Obj_Estados_DAL, string sFiltro)
         //{
