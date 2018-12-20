@@ -17,15 +17,16 @@ namespace BLL_Special_Ticket.CAT_MANT
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
 
             Obj_BD_DAL.SNomTabla = "";
-            Obj_BD_DAL.SSentencia = "SP_INSERTAR_USUARIO";
+            Obj_BD_DAL.SSentencia = "SP_INSERTAR_USUARIO1";
 
             Obj_BD_BLL.Crear_DT_Parametros(ref Obj_BD_DAL);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4",Obj_Usuario_DAL.SCorreo);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Clave", "4", Obj_Usuario_DAL.SClave);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Nombre", "4", Obj_Usuario_DAL.SNombre);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "4", Obj_Usuario_DAL.STelefono);
-            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notificaciones", "3", Obj_Usuario_DAL.BNotificaciones);
             Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notas", "4", Obj_Usuario_DAL.SNotas);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Telefono", "4", Obj_Usuario_DAL.STelefono);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Correo", "4",Obj_Usuario_DAL.SCorreo);
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Clave", "4", Obj_Usuario_DAL.SClave);         
+            Obj_BD_DAL.Dt_Parametros.Rows.Add("@Notificaciones", "3", Obj_Usuario_DAL.BNotificaciones);
+            
 
 
             Obj_BD_BLL.Exec_NonQuery(ref Obj_BD_DAL);

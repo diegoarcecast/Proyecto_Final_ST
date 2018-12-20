@@ -212,7 +212,7 @@ namespace BLL_Special_Ticket.BD
                                 case "3":
                                     {
                                         obj_BD_DAL.SQL_CMD.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.Char).Value = dr[2].ToString();
+                                                                                       SqlDbType.Bit).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "4":
