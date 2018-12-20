@@ -111,14 +111,14 @@ namespace BLL_Special_Ticket.BD
                                     {
                                        /// agreagamos parametros que va a consumir mi store procedure
                                         obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.Int).Value = dr[2].ToString();
+                                                                                       SqlDbType.SmallInt).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "2":
                                     {
                                        // agreagamos parametros que va a consumir mi store procedure
                                         obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.NVarChar).Value = dr[2].ToString();
+                                                                                       SqlDbType.Decimal).Value = dr[2].ToString();
                                         break;
                                     }
                                 case "3":
@@ -130,6 +130,11 @@ namespace BLL_Special_Ticket.BD
                                 case "4":
                                     {
                                         obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.VarChar).Value = dr[2].ToString();
+                                        break;
+                                    }
+                                case "5":
+                                    {
+                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.DateTime).Value = dr[2].ToString();
                                         break;
                                     }
                                 default:
