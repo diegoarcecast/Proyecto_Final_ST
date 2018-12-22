@@ -14,7 +14,15 @@ namespace SVC.Contract
 {
     public class BD : Interface.IBD
     {
-        public string Insertar_Usuarios(string Correo,string Clave,string Nombre, string Notas, string Telefono,bool Notificaciones)
+        public DataTable ListarDatosZona(string sNombreSP )
+        {
+            Cls_Zona_BLL obj_Zona_BLL = new Cls_Zona_BLL();
+            Cls_BD_DAL obj_BD_DAL = new Cls_BD_DAL();
+
+            return obj_Zona_BLL.ListarDatosZona(sNombreSP, SqlDbType.VarChar);
+        }
+
+        public string Insertar_Usuarios(string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones)
         {
             Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
@@ -28,7 +36,7 @@ namespace SVC.Contract
 
             Obj_Usuario_BLL.Insertar_Usuarios(ref Obj_Usuario_DAL);
 
-            if (Obj_Usuario_DAL.SMsj_Error==string.Empty)
+            if (Obj_Usuario_DAL.SMsj_Error == string.Empty)
             {
                 return "Usuario Agregado";
             }
@@ -42,9 +50,9 @@ namespace SVC.Contract
         {
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
 
-            Obj_Usuario_BLL.Autenticar_Usuario2(Correo,Clave);
+            Obj_Usuario_BLL.Autenticar_Usuario2(Correo, Clave);
 
-            if (Obj_Usuario_BLL.Autenticar_Usuario2(Correo,Clave).Equals(false))
+            if (Obj_Usuario_BLL.Autenticar_Usuario2(Correo, Clave).Equals(false))
             {
                 return "Inicio exitoso";
             }
@@ -55,7 +63,7 @@ namespace SVC.Contract
 
         }
 
-        public string Modificar_Usuario(short idUsuario,string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones)
+        public string Modificar_Usuario(short idUsuario, string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones)
         {
             Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
@@ -65,7 +73,7 @@ namespace SVC.Contract
             Obj_Usuario_DAL.SNotas = Notas;
             Obj_Usuario_DAL.STelefono = Telefono;
             Obj_Usuario_DAL.BNotificaciones = Notificaciones;
-            Obj_Usuario_BLL.Modificar_Usuarios(ref Obj_Usuario_DAL,idUsuario);
+            Obj_Usuario_BLL.Modificar_Usuarios(ref Obj_Usuario_DAL, idUsuario);
 
             if (Obj_Usuario_DAL.SMsj_Error == string.Empty)
             {
@@ -83,7 +91,7 @@ namespace SVC.Contract
         {
             Cls_BD_BLL obj_BD_BLL = new Cls_BD_BLL();
             Cls_BD_DAL obj_BD_DAL = new Cls_BD_DAL();
-            return obj_BD_BLL.ExecuteDataAdapter( sNombreSP, "", SqlDbType.VarChar,  "");
+            return obj_BD_BLL.ExecuteDataAdapter(sNombreSP, "", SqlDbType.VarChar, "");
         }
 
         public DataTable FILTRARDatos(string sNombreSP, string sNombreParametro, SqlDbType DBType, string svalorparametro)
@@ -115,6 +123,6 @@ namespace SVC.Contract
             }
         }
 
-        
+
     }
 }

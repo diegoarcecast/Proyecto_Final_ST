@@ -3,14 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 using BLL_Special_Ticket.BD;
 using DAL_Special_Ticket.BD;
 using DAL_Special_Ticket.CAT_MANT;
 
+
 namespace BLL_Special_Ticket.CAT_MANT
 {
-   public class Cls_Usuario_BLL //Hecho Por Juan Diego
+    public class Cls_Zona_BLL
     {
+        Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+        Cls_Zona_DAL Obj_Zona_DAL = new Cls_Zona_DAL();
+
+        public DataTable ListarDatosZona(string sNombreSP, SqlDbType DbType)
+        {
+            Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
+
+            Obj_BD_DAL.SNomTabla = "eve_Zona";
+            Obj_BD_DAL.SSentencia = sNombreSP;
+
+            return Obj_BD_BLL.Exec_DataAdapter(ref Obj_BD_DAL, SqlDbType.VarChar);
+        }
+
+
+
         public void Insertar_Usuarios(ref Cls_Usuario_DAL Obj_Usuario_DAL)
         {
             Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
