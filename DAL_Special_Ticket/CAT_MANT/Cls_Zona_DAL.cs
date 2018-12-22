@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+
 
 namespace DAL_Special_Ticket.CAT_MANT
 {
-    public class Cls_Usuario_DAL
+    public class Cls_Zona_DAL
     {
         #region VARIABLES PRIVADAS
 
 
-        private string _sCorreo,
-                       _sNotas,
-                       _sClave,
-                       _sNombre,
-                       _sAX,
+        private string _sNombreZona,
+                       _sTipoZona,
+                        _sAX,
                        _sCadena,
                        _sMsj_Error,
                        _sSetencia,
-                       _sNombreTabla,
-            _sTelefono;
+                       _sNombreTabla;
 
-        byte idUsuario;
+        byte idZona;
 
 
 
         private Boolean _bEstAX,
-                        _bNotificaciones;
+                        _estado;
+
+
 
 
 
@@ -36,55 +36,68 @@ namespace DAL_Special_Ticket.CAT_MANT
         #endregion
 
         #region VARIABLES PUBLICAS
-        public string SCorreo
+
+        public string STipoZona
         {
             get
             {
-                return _sCorreo;
+                return _sTipoZona;
             }
 
             set
             {
-                _sCorreo = value;
+                _sTipoZona = value;
+            }
+        }
+        public bool Bestado
+        {
+            get
+            {
+                return _estado;
+            }
+
+            set
+            {
+                _estado = value;
             }
         }
 
-        public string SNotas
+        public bool BEstAX
         {
             get
             {
-                return _sNotas;
+                return _bEstAX;
             }
 
             set
             {
-                _sNotas = value;
+                _bEstAX = value;
             }
         }
 
-        public string SClave
+        public string SNombreZona
         {
             get
             {
-                return _sClave;
+                return _sNombreZona;
             }
 
             set
             {
-                _sClave = value;
+                _sNombreZona = value;
             }
         }
 
-        public string SNombre
+        public byte IdZona
         {
             get
             {
-                return _sNombre;
+                return idZona;
             }
 
             set
             {
-                _sNombre = value;
+                idZona = value;
             }
         }
 
@@ -153,61 +166,9 @@ namespace DAL_Special_Ticket.CAT_MANT
             }
         }
 
-
-
-        public bool BEstAX
-        {
-            get
-            {
-                return _bEstAX;
-            }
-
-            set
-            {
-                _bEstAX = value;
-            }
-        }
-
-        public bool BNotificaciones
-        {
-            get
-            {
-                return _bNotificaciones;
-            }
-
-            set
-            {
-                _bNotificaciones = value;
-            }
-        }
-
-        public string STelefono
-        {
-            get
-            {
-                return _sTelefono;
-            }
-
-            set
-            {
-                _sTelefono = value;
-            }
-        }
-
-        public byte IdUsuario
-        {
-            get
-            {
-                return idUsuario;
-            }
-
-            set
-            {
-                idUsuario = value;
-            }
-        }
-
         #endregion
+
+
         public SqlConnection Obj_Sql_cnx;
 
         public SqlCommand Obj_Sql_Cmd;

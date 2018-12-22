@@ -32,12 +32,12 @@ namespace DAL_Special_Ticket.BD
             }
         }
 
-       
+
 
         #endregion
 
         #region VARIABLES PRIVADAS
-        private string sMsjError, sCadenaConec, sNomTabla, sSentencia, sValorScalar;
+        private string sMsjError, sCadenaConec, sNomTabla, sSentencia, sValorScalar, sValorParametro;
         private bool _bBandError;
         #endregion
 
@@ -117,6 +117,19 @@ namespace DAL_Special_Ticket.BD
             set
             {
                 _bBandError = value;
+            }
+        }
+
+        public string SValorParametro
+        {
+            get
+            {
+                return sValorParametro;
+            }
+
+            set
+            {
+                sValorParametro = value;
             }
         }
         #endregion

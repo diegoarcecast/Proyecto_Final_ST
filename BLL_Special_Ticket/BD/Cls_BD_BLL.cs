@@ -52,7 +52,7 @@ namespace BLL_Special_Ticket.BD
         {
             try
             {
-                obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings["WIN_AUT"].ToString();
+                obj_BD_DAL.SCadenaConec = ConfigurationManager.ConnectionStrings["WINDOWS_AUT"].ToString();
 
                 obj_BD_DAL.SQL_CNX = new SqlConnection(obj_BD_DAL.SCadenaConec);
 
@@ -83,7 +83,7 @@ namespace BLL_Special_Ticket.BD
                 obj_BD_DAL.BBandError = true;
             }
         }
-        public void Exec_DataAdapter(ref Cls_BD_DAL obj_BD_DAL)
+        public DataTable Exec_DataAdapter(ref Cls_BD_DAL obj_BD_DAL, SqlDbType DbType)
         {
             try
             {
@@ -98,59 +98,68 @@ namespace BLL_Special_Ticket.BD
 
                     #region Valido si hay o no parametros, para agregarlos
 
-                    obj_BD_DAL.SQL_DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    //obj_BD_DAL.SQL_DA.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-                    if (obj_BD_DAL.Dt_Parametros.Rows.Count > 0)
-                    {
 
-                        foreach (DataRow dr in obj_BD_DAL.Dt_Parametros.Rows)
-                        {
-                            switch (dr[1].ToString())
-                            {
-                                case "1":
-                                    {
-                                       /// agreagamos parametros que va a consumir mi store procedure
-                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.SmallInt).Value = dr[2].ToString();
-                                        break;
-                                    }
-                                case "2":
-                                    {
-                                       // agreagamos parametros que va a consumir mi store procedure
-                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.Decimal).Value = dr[2].ToString();
-                                        break;
-                                    }
-                                case "3":
-                                    {
-                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
-                                                                                       SqlDbType.Bit).Value = dr[2].ToString();
-                                        break;
-                                    }
-                                case "4":
-                                    {
-                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.VarChar).Value = dr[2].ToString();
-                                        break;
-                                    }
-                                case "5":
-                                    {
-                                        obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.DateTime).Value = dr[2].ToString();
-                                        break;
-                                    }
-                                default:
-                                    {
-                                        break;
-                                    }
-                            }
-                        }
-                    }
+                    //if (obj_BD_DAL.SValorParametro != string.Empty)
+                    //{
+                    //    Obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(obj_BD_DAL.SNomTabla, DbType).Value = obj_BD_DAL.SValorParametro;
+                    //}
+                    //if (obj_BD_DAL.Dt_Parametros.Rows.Count > 0)
+                    //{
+
+                    //    foreach (DataRow dr in obj_BD_DAL.Dt_Parametros.Rows)
+                    //    {
+                    //        switch (dr[1].ToString())
+                    //        {
+                    //            case "1":
+                    //                {
+                    //                    /// agreagamos parametros que va a consumir mi store procedure
+                    //                    obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
+                    //                                                                   SqlDbType.SmallInt).Value = dr[2].ToString();
+                    //                    break;
+                    //                }
+                    //            case "2":
+                    //                {
+                    //                    // agreagamos parametros que va a consumir mi store procedure
+                    //                    obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
+                    //                                                                   SqlDbType.Decimal).Value = dr[2].ToString();
+                    //                    break;
+                    //                }
+                    //            case "3":
+                    //                {
+                    //                    obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(),
+                    //                                                                   SqlDbType.Bit).Value = dr[2].ToString();
+                    //                    break;
+                    //                }
+                    //            case "4":
+                    //                {
+                    //                    obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.VarChar).Value = dr[2].ToString();
+                    //                    break;
+                    //                }
+                    //            case "5":
+                    //                {
+                    //                    obj_BD_DAL.SQL_DA.SelectCommand.Parameters.Add(dr[0].ToString(), SqlDbType.DateTime).Value = dr[2].ToString();
+                    //                    break;
+                    //                }
+                    //            default:
+                    //                {
+                    //                    break;
+                    //                }
+                    //        }
+                    //    }
+                    //}
+
 
                     #endregion
+                    DataSet ds = new DataSet();
+                    obj_BD_DAL.SQL_DA.Fill(ds, obj_BD_DAL.SNomTabla);
+                    obj_BD_DAL.DS = ds;
+                    //obj_BD_DAL.DS = new System.Data.DataSet();
+                    //obj_BD_DAL.SQL_DA.Fill(obj_BD_DAL.DS,obj_BD_DAL.SNomTabla);
 
-                    obj_BD_DAL.DS = new System.Data.DataSet();
-                    obj_BD_DAL.SQL_DA.Fill(obj_BD_DAL.DS, obj_BD_DAL.SNomTabla);
                 }
-
+                return obj_BD_DAL.DS.Tables[0];
                 obj_BD_DAL.SMsjError = string.Empty;
                 obj_BD_DAL.BBandError = false;
             }
@@ -158,6 +167,7 @@ namespace BLL_Special_Ticket.BD
             {
                 obj_BD_DAL.SMsjError = e.Message.ToString();
                 obj_BD_DAL.BBandError = true;
+                return null;
             }
             finally
             {
@@ -356,7 +366,7 @@ namespace BLL_Special_Ticket.BD
                     Obj_BD_DAL.SQL_CNX.Open();
                 }
 
-                Obj_BD_DAL.SQL_DA = new SqlDataAdapter(s_Nombre_SP,Obj_BD_DAL.SQL_CNX);
+                Obj_BD_DAL.SQL_DA = new SqlDataAdapter(s_Nombre_SP, Obj_BD_DAL.SQL_CNX);
 
 
                 DataSet DS = new DataSet();
@@ -369,47 +379,47 @@ namespace BLL_Special_Ticket.BD
                 Obj_BD_DAL.SQL_DA.Fill(DS);
                 return DS.Tables[0];
             }
-            catch (SqlException )
+            catch (SqlException)
             {
                 return null;
             }
 
 
-        //    public Form1()
-        //{
-        //    InitializeComponent();
-        //}
+            //    public Form1()
+            //{
+            //    InitializeComponent();
+            //}
 
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    DataTable DT = new DataTable();
-        //    ServiceReference1.BDClient Obj_WCF = new BDClient();
-        //    DT = Obj_WCF.ListarDatos("sp_listar");
+            //private void Form1_Load(object sender, EventArgs e)
+            //{
+            //    DataTable DT = new DataTable();
+            //    ServiceReference1.BDClient Obj_WCF = new BDClient();
+            //    DT = Obj_WCF.ListarDatos("sp_listar");
 
-        //    dataGridView1.DataSource = DT;
-        //    dataGridView1.Enabled = false;
-        //}
+            //    dataGridView1.DataSource = DT;
+            //    dataGridView1.Enabled = false;
+            //}
 
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-        //    DataTable DT = new DataTable();
-        //    ServiceReference1.BDClient Obj_WCF = new BDClient();
-        //    if (textBox1.Text.Trim() == string.Empty)
-        //    {
+            //private void textBox1_TextChanged(object sender, EventArgs e)
+            //{
+            //    DataTable DT = new DataTable();
+            //    ServiceReference1.BDClient Obj_WCF = new BDClient();
+            //    if (textBox1.Text.Trim() == string.Empty)
+            //    {
 
-        //        DT = Obj_WCF.ListarDatos("sp_listar");
+            //        DT = Obj_WCF.ListarDatos("sp_listar");
 
-        //        dataGridView1.DataSource = DT;
-        //    }
-        //    else
-        //    {
-        //        DT = Obj_WCF.FILTRARDatos("sp_FILTRAR", "@CompanyName", SqlDbType.NVarChar, textBox1.Text.Trim());
+            //        dataGridView1.DataSource = DT;
+            //    }
+            //    else
+            //    {
+            //        DT = Obj_WCF.FILTRARDatos("sp_FILTRAR", "@CompanyName", SqlDbType.NVarChar, textBox1.Text.Trim());
 
-        //        dataGridView1.DataSource = DT;
-        //    }
-        //}
+            //        dataGridView1.DataSource = DT;
+            //    }
+            //}
+        }
     }
-    }
 
-  
+
 }

@@ -44,6 +44,7 @@
     <Compile Include="BD\Cls_BD_BLL.cs" />
     <Compile Include="CAT_MANT\Cls_Eventos_BLL.cs" />
     <Compile Include="CAT_MANT\Cls_Usuario_BLL.cs" />
+    <Compile Include="CAT_MANT\Cls_Zona_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
