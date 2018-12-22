@@ -55,7 +55,7 @@ namespace SVC.Contract
 
         }
 
-        public string Modificar_Usuario(short idUsuario,string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones)
+        public string Modificar_Usuario(string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones)
         {
             Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
@@ -65,7 +65,7 @@ namespace SVC.Contract
             Obj_Usuario_DAL.SNotas = Notas;
             Obj_Usuario_DAL.STelefono = Telefono;
             Obj_Usuario_DAL.BNotificaciones = Notificaciones;
-            Obj_Usuario_BLL.Modificar_Usuarios(ref Obj_Usuario_DAL,idUsuario);
+            Obj_Usuario_BLL.Modificar_Usuarios(ref Obj_Usuario_DAL,Correo);
 
             if (Obj_Usuario_DAL.SMsj_Error == string.Empty)
             {

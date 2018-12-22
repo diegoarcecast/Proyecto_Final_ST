@@ -20,7 +20,7 @@ namespace SVC.Interface
         [OperationContract]
         string InicioSesion(string Correo, string Clave);
         [OperationContract]
-        string Modificar_Usuario(Int16 idUsuario, string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones);
+        string Modificar_Usuario(string Correo, string Clave, string Nombre, string Notas, string Telefono, bool Notificaciones);
 
         [OperationContract]
         DataTable FILTRARDatos(string sNombreSP, string sNombreParametro, SqlDbType DBType, string svalorparametro);
